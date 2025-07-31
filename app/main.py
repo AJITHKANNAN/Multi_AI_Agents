@@ -11,7 +11,7 @@ load_dotenv()
 
 def run_backend():
     try:
-        logger.info("starting backend service..")
+        logger.info("starting backend service ...")
         subprocess.run(["uvicorn" , "app.backend.api:app" , "--host" , "127.0.0.1" , "--port" , "9999"], check=True)
     except CustomException as e:
         logger.error("Problem with backend service")
@@ -27,6 +27,7 @@ def run_frontend():
     
 if __name__=="__main__":
     try:
+        logger.info("Merging Front and Backend simulateously")
         threading.Thread(target=run_backend).start()
         time.sleep(2)
         run_frontend()

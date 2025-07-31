@@ -1,0 +1,40 @@
+2025-07-31 11:52:15,565 - INFO - starting backend service..
+2025-07-31 11:52:17,571 - INFO - Starting Frontend service
+2025-07-31 12:00:01,040 - INFO - Merging Front and Backend simulateously
+2025-07-31 12:00:01,040 - INFO - starting backend service ...
+2025-07-31 12:00:03,046 - INFO - Starting Frontend service
+2025-07-31 12:01:41,494 - INFO - Sending request to backend
+2025-07-31 12:01:41,816 - INFO - Received request for model : llama3-70b-8192
+2025-07-31 12:01:48,130 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-31 12:01:48,152 - INFO - Succesfully got response from AI Agent - llama3-70b-8192
+2025-07-31 12:01:48,154 - INFO - Succesfully received response from backend
+2025-07-31 12:04:10,246 - INFO - Sending request to backend
+2025-07-31 12:04:10,251 - INFO - Received request for model : llama-3.3-70b-versatile
+2025-07-31 12:04:14,841 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-31 12:04:14,850 - INFO - Succesfully got response from AI Agent - llama-3.3-70b-versatile
+2025-07-31 12:04:14,857 - INFO - Succesfully received response from backend
+2025-07-31 12:04:35,066 - INFO - Sending request to backend
+2025-07-31 12:04:35,073 - INFO - Received request for model : gemma2-9b-it
+2025-07-31 12:04:38,091 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-31 12:04:38,093 - INFO - Succesfully got response from AI Agent - gemma2-9b-it
+2025-07-31 12:04:38,096 - INFO - Succesfully received response from backend
+2025-07-31 12:04:46,951 - INFO - Sending request to backend
+2025-07-31 12:04:46,957 - INFO - Received request for model : gemma2-9b-it
+2025-07-31 12:04:49,955 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-31 12:04:49,960 - INFO - Succesfully got response from AI Agent - gemma2-9b-it
+2025-07-31 12:04:49,966 - INFO - Succesfully received response from backend
+2025-07-31 12:05:08,786 - INFO - Sending request to backend
+2025-07-31 12:05:08,792 - INFO - Received request for model : meta-llama/llama-guard-4-12b
+2025-07-31 12:05:10,347 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-31 12:05:10,353 - INFO - Succesfully got response from AI Agent - meta-llama/llama-guard-4-12b
+2025-07-31 12:05:10,359 - INFO - Succesfully received response from backend
+2025-07-31 12:05:13,763 - INFO - Sending request to backend
+2025-07-31 12:05:13,768 - INFO - Received request for model : meta-llama/llama-guard-4-12b
+2025-07-31 12:05:14,964 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-07-31 12:05:14,964 - ERROR - Some error ocuured during response generation
+2025-07-31 12:05:14,966 - ERROR - Backend error
+2025-07-31 12:05:19,948 - INFO - Sending request to backend
+2025-07-31 12:05:19,948 - INFO - Received request for model : llama3-70b-8192
+2025-07-31 12:05:23,435 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-31 12:05:23,441 - INFO - Succesfully got response from AI Agent - llama3-70b-8192
+2025-07-31 12:05:23,446 - INFO - Succesfully received response from backend
