@@ -2,3 +2,4 @@ ai_agent/
 Materials/
 MULTI_AI_AGENT.egg-info/
 .env
+logs/
