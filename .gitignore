@@ -3,4 +3,6 @@ Materials/
 MULTI_AI_AGENT.egg-info/
 logs/
 imp_files.txt
+test_ai_agents.py
+.vscode/
 .env
