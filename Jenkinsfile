@@ -1,13 +1,13 @@
 pipeline{
     agent any
 
-    // environment {
-    //     SONAR_PROJECT_KEY = 'Multi_AI_Agent'
-	// 	SONAR_SCANNER_HOME = tool 'sonar scanner'
-    //     // AWS_REGION = 'us-east-1'
-    //     // ECR_REPO = 'my-repo'
-    //     // IMAGE_TAG = 'latest'
-	// }
+    environment {
+        SONAR_PROJECT_KEY = 'LLMOPS'
+		SONAR_SCANNER_HOME = tool 'Sonarqube' //Jenkins -Tools
+        // AWS_REGION = 'us-east-1'
+        // ECR_REPO = 'my-repo'
+        // IMAGE_TAG = 'latest'
+	}
 
     stages{
         stage('Cloning Github repo to Jenkins'){
@@ -15,26 +15,28 @@ pipeline{
                 script{
                     echo 'Cloning Github repo to Jenkins............'
                     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_token', url: 'https://github.com/AJITHKANNAN/Multi_AI_Agents.git']])  
-                    }       
                 }
+            }
         }
 
-    // stage('SonarQube Analysis'){
-	// 		steps {
-	// 			withCredentials([string(credentialsId: 'sonar token', variable: 'SONAR_TOKEN')]) {
-    					 
-	// 				withSonarQubeEnv('sonar') {
-    // 						sh """
-	// 					${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-	// 					-Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-	// 					-Dsonar.sources=. \
-	// 					-Dsonar.host.url=http://sonarqube-dind:9000 \
-	// 					-Dsonar.login=${SONAR_TOKEN}
-	// 					"""
-	// 				}
-	// 			}
-	// 		}
-	// 	}
+
+    // withSonarQubeEnv('Sonarqube')  jenkins --> System --> SonarQube servers
+    stage('SonarQube Analysis'){
+			steps {
+				withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
+    					
+					withSonarQubeEnv('Sonarqube') { 
+    						sh """
+						${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+						-Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+						-Dsonar.sources=. \
+						-Dsonar.host.url=http://sonarqube-dind:9000 \
+						-Dsonar.login=${SONAR_TOKEN}
+						"""
+					}
+				}
+			}
+		}
 
     // stage('Build and Push Docker Image to ECR') {
     //         steps {
@@ -54,20 +56,21 @@ pipeline{
     //         }
     //     }
 
-    //     stage('Deploy to ECS Fargate') {
-    // steps {
-    //     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
-    //         script {
-    //             sh """
-    //             aws ecs update-service \
-    //               --cluster multi-ai-agent-cluster \
-    //               --service multi-ai-agent-def-service-shqlo39p  \
-    //               --force-new-deployment \
-    //               --region ${AWS_REGION}
-    //             """
-    //             }
-    //         }
-    //     }
-     }
+    // //     stage('Deploy to ECS Fargate') {
+    // // steps {
+    // //     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-token']]) {
+    // //         script {
+    // //             sh """
+    // //             aws ecs update-service \
+    // //               --cluster multi-ai-agent-cluster \
+    // //               --service multi-ai-agent-def-service-shqlo39p  \
+    // //               --force-new-deployment \
+    // //               --region ${AWS_REGION}
+    // //             """
+    // //             }
+    // //         }
+    // //     }
+    // //  }
         
     }
+}
